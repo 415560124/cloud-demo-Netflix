@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <version>2.3.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rhy</groupId>
@@ -19,30 +19,37 @@
     <properties>
         <java.version>1.8</java.version>
         <com.rhy.cloud.project>0.0.1-SNAPSHOT</com.rhy.cloud.project>
+        <spring-boot.version>2.3.8.RELEASE</spring-boot.version>
+        <lombok.version>1.18.16</lombok.version>
     </properties>
     <!-- 此处填写每个工程都会存在的依赖，机制与继承相同 -->
     <dependencies>
+        <!-- Spring相关 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <!-- 此处填写每个工程需要的依赖，此处和上面的区别就是：（1）此处填写的依赖，如果子工程不显式引用的话则不会引用（2）如果子类引用，并且没有填写版本号的话会从这里取 -->
+    <!-- 此处填写每个工程需要的依赖，此处和上面的区别就是：（1）此处填写的依赖，如果子工程不显式引用的话则不会引用（2）如果子类引用，并且没有填写版本号的话会从这里取版本 -->
     <dependencyManagement>
         <dependencies>
-
+            <!-- 其他 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <!-- 统一的构建配置 -->
     <build>
         <plugins>
             <plugin>
