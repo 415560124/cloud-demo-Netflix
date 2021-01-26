@@ -15,6 +15,11 @@
     <description>Spring Cloud Demo Project</description>
     <!-- 标记此maven工程为pom文件工程：负责做统一pom文件内容管理 -->
     <packaging>pom</packaging>
+    <!-- 模块 -->
+    <modules>
+        <module>member-service</module>
+        <module>order-service</module>
+    </modules>
     <!-- 做版本号统一配置 -->
     <properties>
         <java.version>1.8</java.version>
