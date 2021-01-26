@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.rhy</groupId>
+    <artifactId>cloud-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>cloud-demo</name>
+    <description>Spring Cloud Demo Project</description>
+    <!-- 标记此maven工程为pom文件工程：负责做统一pom文件内容管理 -->
+    <packaging>pom</packaging>
+    <!-- 做版本号统一配置 -->
+    <properties>
+        <java.version>1.8</java.version>
+        <com.rhy.cloud.project>0.0.1-SNAPSHOT</com.rhy.cloud.project>
+    </properties>
+    <!-- 此处填写每个工程都会存在的依赖，机制与继承相同 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!-- 此处填写每个工程需要的依赖，此处和上面的区别就是：（1）此处填写的依赖，如果子工程不显式引用的话则不会引用（2）如果子类引用，并且没有填写版本号的话会从这里取 -->
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
