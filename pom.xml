@@ -22,6 +22,8 @@
         <module>eureka-service</module>
         <module>member-service-eureka</module>
         <module>order-service-eureka</module>
+        <module>member-service-ribbon</module>
+        <module>order-service-ribbon</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
