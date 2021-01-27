@@ -1,4 +1,4 @@
-package com.rhy.memberservice.entity;
+package com.rhy.orderservice.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

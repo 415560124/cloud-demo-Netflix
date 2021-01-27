@@ -1,6 +1,6 @@
-package com.rhy.memberservice.controller;
+package com.rhy.orderservice.controller;
 
-import com.rhy.memberservice.entity.Order;
+import com.rhy.orderservice.entity.Order;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
