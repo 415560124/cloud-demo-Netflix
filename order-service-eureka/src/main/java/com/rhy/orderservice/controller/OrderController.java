@@ -23,12 +23,17 @@ import java.util.Random;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
+    /**
+     * 通过服务当前端口，验证集群是否生效
+     */
+    @Value("${server.port}")
+    String serverPort;
     @GetMapping("/order/{ordId}")
     public Order getOrder(@PathVariable Integer ordId){
         return new Order(
                 ordId,
                 new Random().nextInt(100),
-                "张三",
+                serverPort+"张三",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")),
                 new BigDecimal(new Random().nextInt(1000))
         );
@@ -40,7 +45,7 @@ public class OrderController {
             orders.add(new Order(
                     i,
                     memId,
-                    "张三",
+                    serverPort+"张三",
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")),
                     new BigDecimal(new Random().nextInt(1000))));
         }

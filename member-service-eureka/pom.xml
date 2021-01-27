@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rhy</groupId>
-    <artifactId>member-service</artifactId>
-    <name>member-service</name>
-    <description>Member-service</description>
+    <artifactId>member-service-eureka</artifactId>
+    <name>member-service-eureka</name>
+    <description>member-service-eureka</description>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
