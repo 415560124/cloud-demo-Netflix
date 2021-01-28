@@ -15,14 +15,17 @@ import java.util.Random;
  * @description: 自定义负载均衡算法
  */
 public class MyCustomRule extends AbstractLoadBalancerRule {
-
+    /**
+     * 可以做一些初始化配置
+     * @param iClientConfig
+     */
     @Override
     public void initWithNiwsConfig(IClientConfig iClientConfig) {
 
     }
 
     /**
-     *
+     * 返回一个Server对象即服务实例对象，以供调用
      * @param o
      * @return
      */
