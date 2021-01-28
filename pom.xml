@@ -24,6 +24,10 @@
         <module>order-service-eureka</module>
         <module>member-service-ribbon</module>
         <module>order-service-ribbon</module>
+        <module>member-service-hystrix</module>
+        <module>order-service-hystrix</module>
+        <module>member-service-feign</module>
+        <module>order-service-feign</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
@@ -67,6 +71,16 @@
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                 <version>${spring-cloud-starter-netflix.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring-cloud-starter-netflix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-starter-netflix.version}</version>
+            </dependency>
 
             <!-- Spring相关 -->
             <dependency>
@@ -80,6 +94,7 @@
                 <version>${spring-boot.version}</version>
                 <scope>test</scope>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>
