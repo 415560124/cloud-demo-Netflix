@@ -1,6 +1,6 @@
-package com.rhy.memberservice.api;
+package com.rhy.apiservice.feign.order;
 
-import com.rhy.memberservice.entity.Order;
+import com.rhy.commonservice.entity.vo.order.OrderVO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class OrderServiceFeignFallBack implements OrderServiceFeign{
      * @return
      */
     @Override
-    public List<Order> listOrder(Integer memId) {
+    public List<OrderVO> listOrder(Integer memId) {
         //打印一下错误信息，实际业务中应该做对应的处理
         log.error(errormsg.get());
         return null;

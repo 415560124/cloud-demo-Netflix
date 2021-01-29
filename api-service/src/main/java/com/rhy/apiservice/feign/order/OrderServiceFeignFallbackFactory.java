@@ -1,4 +1,4 @@
-package com.rhy.memberservice.api;
+package com.rhy.apiservice.feign.order;
 
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;

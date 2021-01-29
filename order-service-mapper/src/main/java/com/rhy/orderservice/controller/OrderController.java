@@ -1,5 +1,6 @@
 package com.rhy.orderservice.controller;
 
+import com.rhy.commonservice.entity.vo.order.OrderVO;
 import com.rhy.orderservice.entity.Order;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,8 +30,8 @@ public class OrderController {
     @Value("${server.port}")
     String serverPort;
     @GetMapping("/order/{ordId}")
-    public Order getOrder(@PathVariable Integer ordId) {
-        return new Order(
+    public OrderVO getOrder(@PathVariable Integer ordId) {
+        return new OrderVO(
                 ordId,
                 new Random().nextInt(100),
                 serverPort+"张三",
@@ -39,19 +40,19 @@ public class OrderController {
         );
     }
     @GetMapping("/member/{memId}")
-    public List<Order> listOrder(@PathVariable Integer memId) throws InterruptedException {
-        throw new RuntimeException("测试失败");
-//        //休眠两秒模拟超时
+    public List<OrderVO> listOrder(@PathVariable Integer memId) throws InterruptedException {
+//        throw new RuntimeException("测试失败");
+        //休眠两秒模拟超时
 //        Thread.sleep(2000);
-//        List<Order> orders = new ArrayList<>();
-//        for(int i=1;i<=10;i++){
-//            orders.add(new Order(
-//                    i,
-//                    memId,
-//                    serverPort+"张三",
-//                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")),
-//                    new BigDecimal(new Random().nextInt(1000))));
-//        }
-//        return orders;
+        List<OrderVO> orders = new ArrayList<>();
+        for(int i=1;i<=10;i++){
+            orders.add(new OrderVO(
+                    i,
+                    memId,
+                    serverPort+"张三",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")),
+                    new BigDecimal(new Random().nextInt(1000))));
+        }
+        return orders;
     }
 }

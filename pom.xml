@@ -20,6 +20,8 @@
         <module>member-service</module>
         <module>order-service</module>
         <module>eureka-service</module>
+        <module>common-service</module>
+        <module>api-service</module>
         <module>member-service-eureka</module>
         <module>order-service-eureka</module>
         <module>member-service-ribbon</module>
@@ -28,6 +30,11 @@
         <module>order-service-hystrix</module>
         <module>member-service-feign</module>
         <module>order-service-feign</module>
+        <module>member-service-common</module>
+        <module>order-service-common</module>
+        <module>member-service-mapper</module>
+        <module>order-service-mapper</module>
+        <module>mapper-service</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
@@ -41,6 +48,10 @@
         <!-- 其他 -->
         <lombok.version>1.18.16</lombok.version>
         <fastjson.version>1.2.75</fastjson.version>
+        <!-- 数据库依赖 -->
+        <druid-spring-boot-starter.version>1.2.3</druid-spring-boot-starter.version>
+        <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
+        <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
     </properties>
     <!-- 此处填写每个工程都会存在的依赖，机制与继承相同 -->
     <dependencies>
@@ -94,8 +105,44 @@
                 <version>${spring-boot.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- 项目内部依赖 -->
+            <dependency>
+                <groupId>com.rhy</groupId>
+                <artifactId>common-service</artifactId>
+                <version>${com.rhy.cloud.project}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rhy</groupId>
+                <artifactId>api-service</artifactId>
+                <version>${com.rhy.cloud.project}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rhy</groupId>
+                <artifactId>mapper-service</artifactId>
+                <version>${com.rhy.cloud.project}</version>
+            </dependency>
 
-
+            <!-- 数据库依赖 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <!-- 统一的构建配置 -->
