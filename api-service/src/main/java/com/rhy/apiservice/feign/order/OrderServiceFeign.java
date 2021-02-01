@@ -1,7 +1,10 @@
 package com.rhy.apiservice.feign.order;
 
 import com.rhy.commonservice.entity.vo.order.OrderVO;
+import com.rhy.commonservice.entity.vo.orderinfo.OrderInfoForListByVO;
+import com.rhy.commonservice.util.result.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -20,4 +23,6 @@ import java.util.List;
 public interface OrderServiceFeign {
     @GetMapping("/orders/member/{memId}")
     List<OrderVO> listOrder(@PathVariable Integer memId);
+    @GetMapping("/orderInfos/member/{memId}")
+    ResponseEntity<CommonResult<List<OrderInfoForListByVO>>> listByMemId(@PathVariable Integer memId);
 }

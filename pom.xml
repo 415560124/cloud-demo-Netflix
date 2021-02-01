@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.8.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+         <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rhy</groupId>
     <artifactId>cloud-demo</artifactId>
@@ -52,6 +52,7 @@
         <druid-spring-boot-starter.version>1.2.3</druid-spring-boot-starter.version>
         <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
         <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
+        <velocity-engine-core.version>2.2</velocity-engine-core.version>
     </properties>
     <!-- 此处填写每个工程都会存在的依赖，机制与继承相同 -->
     <dependencies>
@@ -142,6 +143,16 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity-engine-core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

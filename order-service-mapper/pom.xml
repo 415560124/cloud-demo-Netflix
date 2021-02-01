@@ -6,7 +6,7 @@
         <groupId>com.rhy</groupId>
         <artifactId>cloud-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+         <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rhy</groupId>
     <artifactId>order-service-mapper</artifactId>
@@ -33,6 +33,10 @@
         <dependency>
             <groupId>com.rhy</groupId>
             <artifactId>common-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rhy</groupId>
+            <artifactId>mapper-service</artifactId>
         </dependency>
     </dependencies>
 

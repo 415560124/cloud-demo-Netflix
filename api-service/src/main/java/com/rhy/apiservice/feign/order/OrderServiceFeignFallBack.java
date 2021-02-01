@@ -1,9 +1,12 @@
 package com.rhy.apiservice.feign.order;
 
 import com.rhy.commonservice.entity.vo.order.OrderVO;
+import com.rhy.commonservice.entity.vo.orderinfo.OrderInfoForListByVO;
+import com.rhy.commonservice.util.result.CommonResult;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -31,4 +34,12 @@ public class OrderServiceFeignFallBack implements OrderServiceFeign{
         log.error(errormsg.get());
         return null;
     }
+
+    @Override
+    public ResponseEntity<CommonResult<List<OrderInfoForListByVO>>> listByMemId(Integer memId) {
+        //打印一下错误信息，实际业务中应该做对应的处理
+        log.error(errormsg.get());
+        return null;
+    }
+
 }

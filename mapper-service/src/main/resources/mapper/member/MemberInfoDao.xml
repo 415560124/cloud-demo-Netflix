@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhy.mapperservice.mapper.MemberInfoDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rhy.mapperservice.entity.MemberInfo">
+        <id column="mem_id" property="memId" />
+        <result column="mem_name" property="memName" />
+        <result column="mem_phone" property="memPhone" />
+    </resultMap>
+    <sql id="getByDOCol">
+        mem_id,
+        mem_name,
+        mem_phone
+    </sql>
+    <sql id="getByDOWhere">
+        <where>
+            <if test="memId != null">
+                mem_id = #{memId}
+            </if>
+        </where>
+    </sql>
+    <select id="getByDO" resultMap="BaseResultMap">
+        SELECT
+        <include refid="getByDOCol"></include>
+        FROM
+        member_info
+        <include refid="getByDOWhere"></include>
+    </select>
+
+</mapper>

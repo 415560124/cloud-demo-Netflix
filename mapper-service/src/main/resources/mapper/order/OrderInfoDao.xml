@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhy.mapperservice.mapper.OrderInfoDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rhy.mapperservice.entity.OrderInfo">
+        <id column="ord_id" property="ordId" />
+        <result column="mem_id" property="memId" />
+        <result column="mem_name" property="memName" />
+        <result column="ord_code" property="ordCode" />
+        <result column="ord_money" property="ordMoney" />
+    </resultMap>
+
+    <!-- 按DO查询用户信息列表 -->
+    <resultMap id="listByDORes" type="com.rhy.mapperservice.entity.OrderInfo">
+        <id column="ord_id" property="ordId" />
+        <result column="ord_code" property="ordCode" />
+        <result column="ord_money" property="ordMoney" />
+    </resultMap>
+    <sql id="listByDOCol">
+        ord_id,
+        ord_code,
+        ord_money
+    </sql>
+    <sql id="listByDOWhere">
+        <where>
+            <if test="memId != null">
+                mem_id = #{memId}
+            </if>
+        </where>
+    </sql>
+    <select id="listByDO" resultMap="listByDORes">
+        SELECT
+        <include refid="listByDOCol"></include>
+        FROM
+        order_info
+        <include refid="listByDOWhere"></include>
+    </select>
+
+</mapper>
