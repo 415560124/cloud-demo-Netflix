@@ -37,7 +37,8 @@ public class OrderInfoController {
      * @return
      */
     @GetMapping("/member/{memId}")
-    public ResponseEntity<CommonResult<List<OrderInfoForListByVO>>> listByMemId(@PathVariable Integer memId){
+    public ResponseEntity<CommonResult<List<OrderInfoForListByVO>>> listByMemId(@PathVariable Integer memId) throws InterruptedException {
+//        Thread.sleep(6000);
         List<OrderInfoForListByVO> res = new ArrayList<>();
         orderInfoService.listByMemId(memId).stream().forEach(orderInfo -> {
             OrderInfoForListByVO orderInfoForListByVO = new OrderInfoForListByVO();

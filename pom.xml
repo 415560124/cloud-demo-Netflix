@@ -35,6 +35,7 @@
         <module>member-service-mapper</module>
         <module>order-service-mapper</module>
         <module>mapper-service</module>
+        <module>gateway-service</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
@@ -91,6 +92,11 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-starter-netflix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring-cloud-starter-netflix.version}</version>
             </dependency>
 
