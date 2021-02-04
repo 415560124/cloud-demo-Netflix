@@ -53,7 +53,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir(System.getProperty("user.dir") + "/mapper-service/src/main/java");
         gc.setAuthor("Herion Lemon");
-        gc.setFileOverride(true);// 是否覆盖同名文件，默认是false
+        gc.setFileOverride(false);// 是否覆盖同名文件，默认是false
         gc.setActiveRecord(false);// 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(true);// XML ResultMap
@@ -69,7 +69,7 @@ public class CodeGenerator {
 
         /** 数据源配置 */
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/cloud_order?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/cloud_rhy_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -83,6 +83,8 @@ public class CodeGenerator {
 
         /** 策略配置 */
         StrategyConfig strategy = new StrategyConfig();
+        //生成字段注解
+        strategy.setEntityTableFieldAnnotationEnable(true);
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);

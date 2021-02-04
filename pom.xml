@@ -33,9 +33,15 @@
         <module>member-service-common</module>
         <module>order-service-common</module>
         <module>member-service-mapper</module>
+        <module>member-service-config</module>
         <module>order-service-mapper</module>
+        <module>order-service-config</module>
         <module>mapper-service</module>
         <module>gateway-service</module>
+        <module>config-service</module>
+        <module>gateway-service-config</module>
+        <module>auth-service</module>
+        <module>user-service</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
@@ -46,6 +52,7 @@
         <!-- SpringCloud相关 -->
         <spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
         <spring-cloud-starter-netflix.version>2.2.6.RELEASE</spring-cloud-starter-netflix.version>
+        <spring-cloud-starter-security.version>2.2.4.RELEASE</spring-cloud-starter-security.version>
         <!-- 其他 -->
         <lombok.version>1.18.16</lombok.version>
         <fastjson.version>1.2.75</fastjson.version>
@@ -99,6 +106,29 @@
                 <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring-cloud-starter-netflix.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud-starter-netflix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${spring-cloud-starter-netflix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-security</artifactId>
+                <version>${spring-cloud-starter-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>${spring-cloud-starter-security.version}</version>
+            </dependency>
+
+
+
 
             <!-- Spring相关 -->
             <dependency>
