@@ -11,4 +11,5 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @modification_time：2021-02-04 13:12
  */
 public interface CustomPasswordEncoder extends PasswordEncoder {
+
 }

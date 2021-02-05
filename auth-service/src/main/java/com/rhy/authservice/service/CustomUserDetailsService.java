@@ -1,5 +1,7 @@
 package com.rhy.authservice.service;
 
+import com.rhy.mapperservice.entity.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -11,4 +13,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @modification_time：2021-02-04 13:10
  */
 public interface CustomUserDetailsService extends UserDetailsService {
+    /**
+     * {@link User}转为{@link UserDetails}
+     * @param user
+     * @return
+     */
+    UserDetails userParseUserDetails(User user);
 }

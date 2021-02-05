@@ -6,13 +6,13 @@
         <groupId>com.rhy</groupId>
         <artifactId>cloud-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <!-- lookup parent from repository -->
+         <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rhy</groupId>
-    <artifactId>auth-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>auth-service</name>
-    <description>Demo project for Spring Boot</description>
+    <artifactId>order-service-auth</artifactId>
+    <name>order-service-auth</name>
+    <description>order-service-auth</description>
+    <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -21,7 +21,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -33,15 +32,15 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rhy</groupId>
+            <artifactId>common-service</artifactId>
         </dependency>
         <dependency>
             <groupId>com.rhy</groupId>
             <artifactId>mapper-service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.rhy</groupId>
-            <artifactId>api-service</artifactId>
         </dependency>
     </dependencies>
 

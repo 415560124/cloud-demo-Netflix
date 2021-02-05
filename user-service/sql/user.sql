@@ -11,7 +11,7 @@
  Target Server Version : 50730
  File Encoding         : 65001
 
- Date: 04/02/2021 17:20:45
+ Date: 04/02/2021 17:30:10
 */
 
 SET NAMES utf8mb4;
@@ -65,7 +65,7 @@ CREATE TABLE `role_menu`  (
   `rol_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '角色编号',
   `men_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '菜单编号',
   PRIMARY KEY (`rol_id`, `men_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '角色菜单关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of role_menu
@@ -97,7 +97,7 @@ CREATE TABLE `user`  (
   `use_note` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`use_id`) USING BTREE,
   UNIQUE INDEX `user_name`(`use_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -115,7 +115,7 @@ CREATE TABLE `user_role`  (
   `use_id` int(12) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户编号',
   PRIMARY KEY (`rol_id`, `use_id`) USING BTREE,
   UNIQUE INDEX `role_id`(`rol_id`, `use_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户角色关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_role

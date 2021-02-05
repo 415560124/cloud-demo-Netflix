@@ -6,7 +6,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -18,8 +17,8 @@ import org.springframework.context.annotation.ComponentScan;
  * 可以替换为一个：
  * @SpringCloudApplication
  */
-@EnableDiscoveryClient
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableFeignClients(
         //第一种：指定以哪个类为根路径进行扫描 - 推荐
         basePackageClasses = {ApiServiceApplication.class},

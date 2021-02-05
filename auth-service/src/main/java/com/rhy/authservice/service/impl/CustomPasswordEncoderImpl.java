@@ -23,6 +23,6 @@ public class CustomPasswordEncoderImpl extends BCryptPasswordEncoder implements 
     }
 
     public static void main(String[] args) {
-        System.out.println(new CustomPasswordEncoderImpl().encode("888888"));;
+        System.out.println(new CustomPasswordEncoderImpl().encode("app"));;
     }
 }

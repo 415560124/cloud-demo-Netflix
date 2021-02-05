@@ -42,6 +42,8 @@
         <module>gateway-service-config</module>
         <module>auth-service</module>
         <module>user-service</module>
+        <module>member-service-auth</module>
+        <module>order-service-auth</module>
     </modules>
     <!-- 做版本号统一配置 -->
     <properties>
