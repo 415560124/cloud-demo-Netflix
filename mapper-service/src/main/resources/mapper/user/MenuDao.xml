@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhy.mapperservice.mapper.MenuDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rhy.mapperservice.entity.Menu">
+        <id column="men_id" property="menId" />
+        <result column="men_name" property="menName" />
+    </resultMap>
+
+</mapper>

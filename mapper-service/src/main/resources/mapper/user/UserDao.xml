@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhy.mapperservice.mapper.UserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rhy.mapperservice.entity.User">
+        <id column="use_id" property="useId" />
+        <result column="use_name" property="useName" />
+        <result column="use_pwd" property="usePwd" />
+        <result column="use_note" property="useNote" />
+    </resultMap>
+
+    <resultMap id="getByDOForRolesRes" type="com.rhy.mapperservice.entity.User">
+        <id column="use_id" property="useId" />
+        <result column="use_name" property="useName" />
+        <result column="use_pwd" property="usePwd" />
+        <result column="use_note" property="useNote" />
+        <collection property="userRoles" column="{useId=use_id}" select="com.rhy.mapperservice.mapper.UserRoleDao.listByDOAndRole"></collection>
+    </resultMap>
+    <select id="getByDOForRoles" resultMap="getByDOForRolesRes">
+        select
+        *
+        from
+        user u
+        <where>
+            u.use_name = #{useName}
+        </where>
+    </select>
+</mapper>

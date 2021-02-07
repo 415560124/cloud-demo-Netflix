@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhy.mapperservice.mapper.UserRoleDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rhy.mapperservice.entity.UserRole">
+        <id column="rol_id" property="rolId" />
+        <result column="use_id" property="useId" />
+    </resultMap>
+
+    <resultMap id="listByDOAndRoleRes" type="com.rhy.mapperservice.entity.UserRole">
+        <result column="rol_id" property="rolId" />
+        <result column="use_id" property="useId" />
+        <association property="role" resultMap="listByDOAndRoleResForRole"></association>
+    </resultMap>
+    <resultMap id="listByDOAndRoleResForRole" type="com.rhy.mapperservice.entity.Role">
+        <id column="rol_id" property="rolId" />
+        <result column="rol_name" property="rolName" />
+        <result column="rol_note" property="rolNote" />
+<!--        <collection property="roleMenus" column="{rolId=rol_id}" select="com.rhy.mapperservice.mapper.RoleMenuDao.listByDOAndMenu"></collection>-->
+    </resultMap>
+    <select id="listByDOAndRole" resultMap="listByDOAndRoleRes">
+        select
+        rm.*,
+        r.*
+        from
+        user_role rm
+        left join role r on rm.rol_id = r.rol_id
+        <where>
+            <if test="useId != null and useId != 0">
+                rm.use_id = #{useId}
+            </if>
+            <if test="rolId != null and rolId != 0">
+                and rm.rol_id = #{rolId}
+            </if>
+        </where>
+    </select>
+</mapper>
