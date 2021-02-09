@@ -11,6 +11,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
+import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author: Herion Lemon
@@ -44,7 +48,6 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
         provider.setPasswordEncoder(customPasswordEncoder);
         return provider;
     }
-
     /**
      * 登录验证上下文
      * @return
@@ -78,9 +81,13 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/assets/**", "/css/**", "/images/**").permitAll().anyRequest().authenticated()
+        http.authorizeRequests().antMatchers("/assets/**", "/css/**", "/images/**" , "/user/getCurrentUser" ).permitAll().anyRequest().authenticated()
                 //允许所有身份访问    loginPage：登录页url  loginProcessingUrl：登录处理url
-                .and().formLogin().loginPage("/login").loginProcessingUrl("/login").permitAll();
+                .and()
+                .formLogin()
+//                .loginPage("/login")
+//                .loginProcessingUrl("/login")
+                .permitAll();
     }
 
 }

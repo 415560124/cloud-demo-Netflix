@@ -1,10 +1,8 @@
 package com.rhy.orderservice.controller;
 
 
-import com.rhy.commonservice.entity.vo.order.OrderVO;
 import com.rhy.commonservice.entity.vo.orderinfo.OrderInfoForListByVO;
 import com.rhy.commonservice.util.result.CommonResult;
-import com.rhy.mapperservice.entity.OrderInfo;
 import com.rhy.orderservice.service.OrderInfoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +24,8 @@ import java.util.List;
  * @since 2021-02-01
  */
 @RestController
-@RequestMapping("/orderInfos")
-public class OrderInfoController {
+@RequestMapping("/orderInfosWrite")
+public class OrderInfoWriteController {
     @Autowired
     private OrderInfoService orderInfoService;
 

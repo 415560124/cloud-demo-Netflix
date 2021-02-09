@@ -58,6 +58,7 @@
         <!-- 其他 -->
         <lombok.version>1.18.16</lombok.version>
         <fastjson.version>1.2.75</fastjson.version>
+        <logbook-spring-boot-starter.version>2.1.0</logbook-spring-boot-starter.version>
         <!-- 数据库依赖 -->
         <druid-spring-boot-starter.version>1.2.3</druid-spring-boot-starter.version>
         <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
@@ -72,6 +73,16 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-spring-boot-starter</artifactId>
+            <version>${logbook-spring-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-json</artifactId>
+            <version>${logbook-spring-boot-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -161,6 +172,11 @@
                 <version>${com.rhy.cloud.project}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.rhy</groupId>
+                <artifactId>auth-service</artifactId>
+                <version>${com.rhy.cloud.project}</version>
+            </dependency>
             <!-- 数据库依赖 -->
             <dependency>
                 <groupId>mysql</groupId>

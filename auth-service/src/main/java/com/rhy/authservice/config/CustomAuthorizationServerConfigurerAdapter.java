@@ -41,6 +41,13 @@ public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationSer
     private AuthenticationManager authenticationManager;
 
     /**
+     * 自定义密码加密校验器
+     */
+    @Autowired
+    private CustomPasswordEncoder customPasswordEncoder;
+
+
+    /**
      * 客户端授权验证方式配置，token验证与获取相关配置
      * @param security
      * @throws Exception
@@ -64,6 +71,7 @@ public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationSer
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //启动JDBC读取客户端信息
         clients.withClientDetails(new JdbcClientDetailsService(dataSource));
+        ;
     }
 
     /**

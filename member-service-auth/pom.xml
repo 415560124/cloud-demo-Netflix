@@ -38,6 +38,10 @@
             <groupId>com.rhy</groupId>
             <artifactId>mapper-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.rhy</groupId>
+            <artifactId>auth-service</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
