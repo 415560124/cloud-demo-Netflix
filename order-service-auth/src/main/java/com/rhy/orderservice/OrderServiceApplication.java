@@ -1,5 +1,6 @@
 package com.rhy.orderservice;
 
+import com.rhy.apiservice.ApiServiceApplication;
 import com.rhy.commonservice.CommonServiceApplication;
 import com.rhy.mapperservice.MapperServiceApplication;
 import org.mybatis.spring.annotation.MapperScan;
@@ -15,6 +16,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @MapperScan(basePackageClasses = MapperServiceApplication.class)
 @ComponentScan(
         basePackageClasses = {
+                ApiServiceApplication.class,
+                OrderServiceApplication.class,
                 CommonServiceApplication.class
         }
 )

@@ -32,7 +32,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
         //第一种：指定以哪个类为根路径进行扫描 - 推荐
         basePackageClasses = {
                 ApiServiceApplication.class,
-                CommonServiceApplication.class
+                CommonServiceApplication.class,
+                MemberServiceApplication.class
         }
 )
 @MapperScan(basePackageClasses = MapperServiceApplication.class)

@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         remoteTokenServices.setRestTemplate(restTemplate);
         return remoteTokenServices;
     }
-    @Bean
+    @Bean("authenticationManager")
     public AuthenticationManager initAuthenticationManager(){
         OAuth2AuthenticationManager manager = new OAuth2AuthenticationManager();
         manager.setTokenServices(resourceServerTokenServices());
