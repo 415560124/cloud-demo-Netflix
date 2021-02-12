@@ -11,10 +11,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
-import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @author: Herion Lemon
@@ -23,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
  * @description: WebSecurityConfigurerAdapter spring security框架实现类
  */
 @Configuration
-public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义密码加密校验器
      */

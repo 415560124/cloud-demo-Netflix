@@ -12,6 +12,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 import javax.sql.DataSource;
@@ -23,7 +25,7 @@ import javax.sql.DataSource;
  * @description: AuthorizationServerConfigurerAdapter 配置类
  */
 @Configuration
-public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     /**
      * 数据库数据源
      */
@@ -88,6 +90,12 @@ public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationSer
                  .userDetailsService(customUserDetailsService);
                 //自定义授权页
 //                 .pathMapping("/oauth/confirm_access","/oauth/confirm_access");
+        //设置token相关用户登录信息
+        DefaultAccessTokenConverter defaultAccessTokenConverter = new DefaultAccessTokenConverter();
+        DefaultUserAuthenticationConverter defaultUserAuthenticationConverter = new DefaultUserAuthenticationConverter();
+        defaultUserAuthenticationConverter.setUserDetailsService(customUserDetailsService);
+        defaultAccessTokenConverter.setUserTokenConverter(defaultUserAuthenticationConverter);
+        endpoints.accessTokenConverter(defaultAccessTokenConverter);
 
     }
 

@@ -1,6 +1,7 @@
 package com.rhy.authservice;
 
 import com.rhy.apiservice.ApiServiceApplication;
+import com.rhy.commonservice.CommonServiceApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -19,7 +20,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
         //第二种：指定包
         basePackages = "com.rhy"
 )
-@ComponentScan("com.rhy")
+@ComponentScan(
+        basePackageClasses = {
+                AuthServiceApplication.class,
+                CommonServiceApplication.class
+        }
+)
 public class AuthServiceApplication {
 
     public static void main(String[] args) {

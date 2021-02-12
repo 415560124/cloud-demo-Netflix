@@ -36,6 +36,10 @@
         </dependency>
         <dependency>
             <groupId>com.rhy</groupId>
+            <artifactId>auth-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rhy</groupId>
             <artifactId>api-service</artifactId>
         </dependency>
         <dependency>
