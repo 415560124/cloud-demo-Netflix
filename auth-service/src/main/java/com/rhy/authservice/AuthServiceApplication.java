@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableAuthorizationServer
 @EnableFeignClients(
         //第一种：指定以哪个类为根路径进行扫描 - 推荐
         basePackageClasses = {ApiServiceApplication.class},
@@ -23,9 +22,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @ComponentScan(
         basePackageClasses = {
                 AuthServiceApplication.class,
-                CommonServiceApplication.class
+                CommonServiceApplication.class,
+                ApiServiceApplication.class
         }
 )
+@EnableAuthorizationServer
 public class AuthServiceApplication {
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @slogan: 如果你想攀登高峰，切莫把彩虹当梯子
  * @description: Ribbon负载均衡算法配置
  */
-@Configuration
+//@Configuration
 public class RibbonConfig {
     @Bean
     public IRule getIRule(){

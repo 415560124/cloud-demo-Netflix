@@ -77,7 +77,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/assets/**", "/css/**", "/images/**" , "/user/getCurrentUser" ).permitAll().anyRequest().authenticated()
+        http
+                .authorizeRequests().antMatchers("/assets/**", "/css/**", "/images/**" , "/user/getCurrentUser" ).permitAll().anyRequest().authenticated()
                 //允许所有身份访问    loginPage：登录页url  loginProcessingUrl：登录处理url
                 .and()
                 .formLogin()
